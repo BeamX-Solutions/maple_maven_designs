@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Portfolio from '../components/Portfolio';
+import { useNavigate } from 'react-router-dom'; // Assuming React Router is used
 import CTASection from '../components/CTASection';
 
 interface Project {
@@ -16,7 +16,9 @@ interface Project {
 const PortfolioPage: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
-  
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0); // Track the selected image index
+  const navigate = useNavigate(); // For navigation to ContactPage
+
   const projects: Project[] = [
     {
       id: 1,
@@ -24,26 +26,28 @@ const PortfolioPage: React.FC = () => {
       category: "Interior Design",
       location: "Lagos, Nigeria",
       year: "2023",
-      imageUrl: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg",
+      imageUrl: "/portfolio-living-room.jpeg",
       description: "A complete transformation of a living space into a modern, comfortable sanctuary that reflects the client's personality and lifestyle. The design focuses on clean lines, neutral tones with bold accents, and a harmonious flow throughout the space.",
       fullImages: [
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg",
-        "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg",
-        "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg"
+        "/portfolio-living-room.jpeg",
+        "/portfolio-living-room-2.jpeg",
+        "/portfolio-living-room-3.jpeg",
+        "/portfolio-living-room-4.jpeg"
       ]
     },
     {
       id: 2,
-      title: "Executive Office Space",
+      title: "Elegant Bar Lounge Design",
       category: "Commercial Design",
       location: "Abuja, Nigeria",
       year: "2022",
-      imageUrl: "https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg",
-      description: "Functional and stylish office design for a corporate client focusing on productivity and comfort. The space incorporates ergonomic furniture, strategic lighting, and a color scheme that promotes focus and creativity.",
+      imageUrl: "/portfolio-bar.jpg",
+      description: "A sophisticated bar design featuring a sleek counter, ambient lighting, and an extensive wine storage system, creating an inviting atmosphere for social gatherings and relaxation.",
       fullImages: [
-        "https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg",
-        "https://images.pexels.com/photos/260931/pexels-photo-260931.jpeg",
-        "https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg"
+        "/portfolio-bar.jpg",
+        "/portfolio-bar-2.jpg",
+        "/portfolio-bar-3.jpg",
+        "/portfolio-bar-4.jpg"
       ]
     },
     {
@@ -52,12 +56,13 @@ const PortfolioPage: React.FC = () => {
       category: "Renovation",
       location: "Port Harcourt, Nigeria",
       year: "2023",
-      imageUrl: "https://images.pexels.com/photos/6585757/pexels-photo-6585757.jpeg",
+      imageUrl: "/portfolio-bathroom.jpg",
       description: "Transformation of an outdated bathroom into a spa-like retreat with premium fixtures. The renovation included custom cabinetry, high-end finishes, and innovative storage solutions to create a luxurious yet practical space.",
       fullImages: [
-        "https://images.pexels.com/photos/6585757/pexels-photo-6585757.jpeg",
-        "https://images.pexels.com/photos/1910472/pexels-photo-1910472.jpeg",
-        "https://images.pexels.com/photos/2775328/pexels-photo-2775328.jpeg"
+        "/portfolio-bathroom.jpg",
+        "/portfolio-bathroom-2.jpg",
+        "/portfolio-bathroom-3.jpg",
+        "/portfolio-bathroom-4.jpg",
       ]
     },
     {
@@ -66,12 +71,12 @@ const PortfolioPage: React.FC = () => {
       category: "Interior Design",
       location: "Lagos, Nigeria",
       year: "2022",
-      imageUrl: "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg",
+      imageUrl: "/portfolio-kitchen.jpg",
       description: "A functional kitchen with modern appliances, smart storage solutions, and elegant finishes. The design prioritizes workflow efficiency while maintaining a stylish aesthetic that complements the home's overall design.",
       fullImages: [
-        "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg",
-        "https://images.pexels.com/photos/3935350/pexels-photo-3935350.jpeg",
-        "https://images.pexels.com/photos/3214064/pexels-photo-3214064.jpeg"
+        "/portfolio-kitchen.jpg",
+        "/portfolio-kitchen-2.jpg",
+        "/portfolio-kitchen-3.jpg"
       ]
     },
     {
@@ -90,22 +95,24 @@ const PortfolioPage: React.FC = () => {
     },
     {
       id: 6,
-      title: "Retail Store Layout",
-      category: "Commercial Design",
+      title: "Whimsical Kids' Bedroom Retreat",
+      category: "Interior Design",
       location: "Lagos, Nigeria",
       year: "2023",
-      imageUrl: "https://images.pexels.com/photos/264507/pexels-photo-264507.jpeg",
-      description: "Strategic store layout designed to enhance customer experience and increase sales. The design incorporated brand elements, optimal traffic flow, and eye-catching displays to create an inviting shopping environment.",
+      imageUrl: "/portfolio-kids-bedroom.jpg",
+      description: "A playful and cozy kids' bedroom with themed decor, comfortable bedding, and safe furniture, designed to inspire creativity and ensure a restful environment for children.",
       fullImages: [
-        "https://images.pexels.com/photos/264507/pexels-photo-264507.jpeg",
-        "https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg",
-        "https://images.pexels.com/photos/1884581/pexels-photo-1884581.jpeg"
+        "/portfolio-kids-bedroom.jpg",
+        "/portfolio-kids-bedroom-2.jpg",
+        "/portfolio-kids-bedroom-3.jpg",
+        "/portfolio-kids-bedroom-4.jpg"
       ]
     }
   ];
 
   const openProjectModal = (project: Project) => {
     setSelectedProject(project);
+    setSelectedImageIndex(0); // Set the first image as default
     setModalOpen(true);
     document.body.style.overflow = 'hidden';
   };
@@ -114,6 +121,17 @@ const PortfolioPage: React.FC = () => {
     setSelectedProject(null);
     setModalOpen(false);
     document.body.style.overflow = 'auto';
+  };
+
+  const handleImageClick = (index: number) => {
+    if (selectedImageIndex !== index) {
+      setSelectedImageIndex(index); // Only update if a different image is clicked
+    }
+  };
+
+  const handleRequestSimilarDesign = () => {
+    navigate('/contact'); // Navigate to ContactPage using React Router
+    closeProjectModal(); // Close the modal after navigation
   };
 
   return (
@@ -183,10 +201,10 @@ const PortfolioPage: React.FC = () => {
               
               <div className="flex flex-col md:flex-row">
                 <div className="md:w-1/2">
-                  <div className="h-96 overflow-hidden">
+                  <div className="h-[500px] overflow-hidden"> {/* Increased height for better visibility */}
                     <img 
-                      src={selectedProject.imageUrl} 
-                      alt={selectedProject.title} 
+                      src={selectedProject.fullImages[selectedImageIndex]} 
+                      alt={`${selectedProject.title} main view`} 
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -196,7 +214,10 @@ const PortfolioPage: React.FC = () => {
                         key={index}
                         src={img} 
                         alt={`${selectedProject.title} view ${index + 1}`} 
-                        className="w-full h-24 object-cover rounded cursor-pointer hover:opacity-80 transition-opacity"
+                        className={`w-full h-24 object-cover rounded cursor-pointer hover:opacity-80 transition-opacity ${
+                          selectedImageIndex === index ? 'border-4 border-gold' : '' // Highlight selected image
+                        }`}
+                        onClick={() => handleImageClick(index)}
                       />
                     ))}
                   </div>
@@ -228,7 +249,10 @@ const PortfolioPage: React.FC = () => {
                     {selectedProject.description}
                   </p>
                   
-                  <button className="px-6 py-3 bg-gold text-white rounded hover:bg-gold/90 transition-colors">
+                  <button 
+                    className="px-6 py-3 bg-gold text-white rounded hover:bg-gold/90 transition-colors"
+                    onClick={handleRequestSimilarDesign}
+                  >
                     Request Similar Design
                   </button>
                 </div>

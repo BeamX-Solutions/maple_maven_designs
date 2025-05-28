@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
           <div>
             <div className="mb-6 flex items-center">
               <img
-                src="/maven-logo.PNG"
+                src="/new-logo-3.jpg"
                 alt="Maple Maven Logo"
                 className="mr-2"
                 style={{

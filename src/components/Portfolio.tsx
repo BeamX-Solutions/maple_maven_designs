@@ -16,7 +16,7 @@ const Portfolio: React.FC = () => {
       id: 1,
       title: "Modern Living Room Redesign",
       category: "interior",
-      imageUrl: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg",
+      imageUrl: "/portfolio-living-room.jpeg",
       description: "A complete transformation of a living space into a modern, comfortable sanctuary."
     },
     {
@@ -30,14 +30,14 @@ const Portfolio: React.FC = () => {
       id: 3,
       title: "Luxury Bathroom Renovation",
       category: "renovation",
-      imageUrl: "https://images.pexels.com/photos/6585757/pexels-photo-6585757.jpeg",
+      imageUrl: "portfolio-bathroom.jpg",
       description: "Transformation of an outdated bathroom into a spa-like retreat with premium fixtures."
     },
     {
       id: 4,
       title: "Contemporary Kitchen Design",
       category: "interior",
-      imageUrl: "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg",
+      imageUrl: "/portfolio-kitchen.jpg",
       description: "A functional kitchen with modern appliances, smart storage solutions, and elegant finishes."
     },
     {
