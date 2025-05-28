@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-gray-800;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    color: #C0A080;
+  }
+  
+  .bg-gold {
+    background-color: #C0A080;
+  }
+  
+  .border-gold {
+    border-color: #C0A080;
+  }
+  
+  .hover\:text-gold:hover {
+    color: #C0A080;
+  }
+  
+  .hover\:bg-gold:hover {
+    background-color: #C0A080;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
