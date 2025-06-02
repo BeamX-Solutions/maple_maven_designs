@@ -1,7 +1,41 @@
-import React from 'react';
-import { Phone, MapPin, Clock } from 'lucide-react';
+import React, { useState } from 'react';
+import { Phone, MapPin, Clock, ChevronDown, ChevronUp } from 'lucide-react';
+
+const faqs = [
+  {
+    question: 'What areas do you serve?',
+    answer:
+      "We primarily serve Lagos, Abuja, and surrounding areas, but we're available for projects throughout Nigeria and can discuss international projects as well.",
+  },
+  {
+    question: 'What is your typical process for a new client?',
+    answer:
+      'We begin with an initial consultation to understand your needs, then proceed with concept development, detailed planning, implementation, and final handover. Each step involves close collaboration with you.',
+  },
+  {
+    question: 'What is the typical timeline for a project?',
+    answer:
+      'Project timelines vary based on scope and complexity. Small renovations might take 4-6 weeks, while larger projects can take several months. We\'ll provide a detailed timeline during the planning phase.',
+  },
+  {
+    question: 'Do you offer virtual consultations?',
+    answer:
+      'Yes, we offer virtual consultations for clients who prefer remote meetings or are located outside our service area. These can be arranged via video call at your convenience.',
+  },
+  {
+    question: 'How are your services priced?',
+    answer:
+      'Our pricing varies based on project scope, size, and specific services required. We offer transparent pricing and will provide a detailed quote after the initial consultation.',
+  },
+];
 
 const ContactPage: React.FC = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <>
       <div className="pt-40 pb-12 bg-gray-50">
@@ -112,6 +146,7 @@ const ContactPage: React.FC = () => {
                       <p className="text-gray-700">
                         +234 906 401 3237
                       </p>
+                    </div>
                     <div className="flex items-start">
                       <Clock className="text-gold w-5 h-5 mt-1 mr-3 flex-shrink-0" />
                       <p className="text-gray-700">
@@ -119,7 +154,6 @@ const ContactPage: React.FC = () => {
                         Saturday: 10am - 2pm<br />
                         Sunday: Closed
                       </p>
-                    </div>
                     </div>
                   </div>
                 </div>
@@ -157,12 +191,35 @@ const ContactPage: React.FC = () => {
 
       <section className="py-16">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div className="h-96">
-              {/* Google Maps Embed would go here */}
-              <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                <p className="text-gray-600">Map loading...</p>
-                {/* In a real implementation, this would be replaced with an actual Google Maps embed */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h4 className="text-xl font-serif font-semibold mb-4 text-center md:text-left">Awka Office Map</h4>
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden h-96">
+                <iframe
+                  title="Awka Office Map"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.8300569301726!2d7.083002174934463!3d6.236870393754702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1044f5158b1b2b5d%3A0x2e1de7e7a1c2d4ff!2s11%20Seaman%20Ave%2C%20Awka%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1717336789012!5m2!1sen!2sng"
+                  width="100%"
+                  height="100%"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="border-0 w-full h-full"
+                ></iframe>
+              </div>
+            </div>
+            <div>
+              <h4 className="text-xl font-serif font-semibold mb-4 text-center md:text-left">Lagos Office Map</h4>
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden h-96">
+                <iframe
+                  title="Lagos Office Map"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.0268751295245!2d3.2909372749646063!3d6.469435624860358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d32fdd5f6cf%3A0x42f7f6f2a9e143e3!2sB025%20Yobe%20Plaza%2C%20Balogun%20Business%20Association%20(BBA)%20Trade%20Fair%20Complex%2C%20Lagos!5e0!3m2!1sen!2sng!4v1717336906789!5m2!1sen!2sng"
+                  width="100%"
+                  height="100%"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="border-0 w-full h-full"
+                ></iframe>
               </div>
             </div>
           </div>
@@ -176,43 +233,31 @@ const ContactPage: React.FC = () => {
             <div className="w-16 h-1 bg-gold mx-auto mb-6"></div>
           </div>
           
-          <div className="max-w-3xl mx-auto">
-            <div className="space-y-6">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-2">What areas do you serve?</h3>
-                <p className="text-gray-600">
-                  We primarily serve Lagos, Abuja, and surrounding areas, but we're available for projects throughout Nigeria and can discuss international projects as well.
-                </p>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <div key={index} className="bg-white p-4 rounded-lg shadow-md">
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full flex justify-between items-center text-left text-lg font-medium text-gray-800 focus:outline-none"
+                >
+                  <span>{faq.question}</span>
+                  {openIndex === index ? (
+                    <ChevronUp className="w-5 h-5 text-gold" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-gold" />
+                  )}
+                </button>
+                {openIndex === index && (
+                  <div className="mt-3 text-gray-600 text-base">
+                    {faq.answer}
+                  </div>
+                )}
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-2">What is your typical process for a new client?</h3>
-                <p className="text-gray-600">
-                  We begin with an initial consultation to understand your needs, then proceed with concept development, detailed planning, implementation, and final handover. Each step involves close collaboration with you.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-2">What is the typical timeline for a project?</h3>
-                <p className="text-gray-600">
-                  Project timelines vary based on scope and complexity. Small renovations might take 4-6 weeks, while larger projects can take several months. We'll provide a detailed timeline during the planning phase.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-2">Do you offer virtual consultations?</h3>
-                <p className="text-gray-600">
-                  Yes, we offer virtual consultations for clients who prefer remote meetings or are located outside our service area. These can be arranged via video call at your convenience.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-2">How are your services priced?</h3>
-                <p className="text-gray-600">
-                  Our pricing varies based on project scope, size, and specific services required. We offer transparent pricing and will provide a detailed quote after the initial consultation.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
-      </>
+    </>
   );
 };
 

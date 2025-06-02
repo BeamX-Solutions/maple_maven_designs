@@ -83,6 +83,8 @@ const AboutSection: React.FC = () => {
           </div>
         </div>
         
+
+        {/* Design Process Section 
         <div className="mt-20">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h3 className="text-3xl font-serif font-bold mb-4">Our Design Process</h3>
@@ -132,7 +134,7 @@ const AboutSection: React.FC = () => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

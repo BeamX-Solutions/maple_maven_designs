@@ -21,16 +21,16 @@ const Portfolio: React.FC = () => {
     },
     {
       id: 2,
-      title: "Executive Office Space",
+      title: "Elegant Bar Lounge Design",
       category: "commercial",
-      imageUrl: "https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg",
+      imageUrl: "/portfolio-bar-lounge.jpg",
       description: "Functional and stylish office design for a corporate client focusing on productivity and comfort."
     },
     {
       id: 3,
       title: "Luxury Bathroom Renovation",
       category: "renovation",
-      imageUrl: "portfolio-bathroom.jpg",
+      imageUrl: "/portfolio-bathroom.jpg",
       description: "Transformation of an outdated bathroom into a spa-like retreat with premium fixtures."
     },
     {

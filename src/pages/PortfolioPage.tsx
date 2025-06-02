@@ -95,7 +95,7 @@ const PortfolioPage: React.FC = () => {
     },
     {
       id: 6,
-      title: "Whimsical Kids' Bedroom Retreat",
+      title: "Redesigned Kids' Bedroom",
       category: "Interior Design",
       location: "Lagos, Nigeria",
       year: "2023",

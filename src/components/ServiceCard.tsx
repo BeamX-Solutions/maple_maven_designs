@@ -30,11 +30,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       <h3 className="text-2xl font-serif font-semibold mb-3">{title}</h3>
       <p className="text-gray-600 mb-4">{description}</p>
       
-      <div className="mt-auto">
-        <a href="#" className="inline-flex items-center text-gold font-medium group-hover:underline">
-          Learn more <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </a>
-      </div>
+      
     </div>
   );
 };

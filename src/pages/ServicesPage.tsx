@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ServicesSection from '../components/ServicesSection';
 import CTASection from '../components/CTASection';
 
 const ServicesPage: React.FC = () => {
+  const [activeStep, setActiveStep] = useState<number | null>(null);
+
+  const serviceProcess = [
+    { id: 1, title: "Connect With Us", description: "Start by contacting us via DM, WhatsApp, or call to discuss your space and provide key visual details." },
+    { id: 2, title: "Have a Budget", description: "Share your budget post-initial chat to guide the planning process (no visits without this)." },
+    { id: 3, title: "Site Visitation", description: "Plan a site visit based on your location, with potential extra charges outside Awka, Nigeria." },
+    { id: 4, title: "Design Concept Payment", description: "Make payment via invoice to resume design, based on agreed deliverables like moodboards or 3D models." },
+    { id: 5, title: "Presentation & Approval", description: "Review and approve the design presentation, with adjustments if needed before proceeding." },
+    { id: 6, title: "Quotation & Payment", description: "Receive and settle quotes following the approved moodboard." },
+    { id: 7, title: "Execution", description: "Begin work post-payment, aligned with the agreed timeline." },
+    { id: 8, title: "Hand Over", description: "Officially hand over the completed project after execution and styling." },
+    { id: 9, title: "Follow Up", description: "Follow up within the first week post-handover for any minor adjustments." },
+  ];
+
+  const toggleStep = (id: number) => {
+    setActiveStep(activeStep === id ? null : id);
+  };
+
   return (
     <div>
       <div className="pt-40 pb-12 bg-gray-50">
@@ -19,91 +37,39 @@ const ServicesPage: React.FC = () => {
         <ServicesSection />
       </div>
       
-      <section className="py-20">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <img 
-                src="https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg" 
-                alt="Our Process" 
-                className="rounded-lg shadow-lg"
-              />
-            </div>
-            <div>
-              <h2 className="text-4xl font-serif font-bold mb-4">Our Service Process</h2>
-              <div className="w-24 h-1 bg-gold mb-6"></div>
-              
-              <div className="space-y-6">
-                <div className="flex">
-                  <div className="mr-4 flex-shrink-0">
-                    <div className="bg-gold text-white w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold">
-                      1
+          <h2 className="text-4xl font-serif font-bold text-center mb-4">Our Service Process</h2>
+          <div className="w-24 h-1 bg-gold mx-auto mb-12"></div>
+          
+          <div className="relative max-w-5xl mx-auto">
+            {/* Roadmap Container */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-16">
+              {serviceProcess.map((step) => (
+                <div
+                  key={step.id}
+                  className="relative flex flex-col items-center group transition-transform duration-300 hover:scale-105 cursor-pointer"
+                  onClick={() => toggleStep(step.id)}
+                >
+                  {/* Step Circle with Clickable Cue */}
+                  <div className="relative z-10 flex flex-col items-center">
+                    <div className="bg-gold text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-2 animate-pulse">
+                      {step.id}
                     </div>
+                    <h3 className="text-lg font-semibold text-center">{step.title}</h3>
+                    <span className="text-gold text-sm mt-1">
+                      {activeStep === step.id ? '−' : '+'}
+                    </span>
                   </div>
-                  <div>
-                    <h4 className="text-xl font-semibold mb-2">Initial Consultation</h4>
-                    <p className="text-gray-600">
-                      We begin with a thorough consultation to understand your vision, requirements, and budget. This helps us align our services with your specific needs.
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex">
-                  <div className="mr-4 flex-shrink-0">
-                    <div className="bg-gold text-white w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold">
-                      2
+
+                  {/* Dropdown Description */}
+                  {activeStep === step.id && (
+                    <div className="mt-2 p-4 bg-white rounded-lg shadow-md text-gray-600 text-center animate-fadeIn">
+                      {step.description}
                     </div>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold mb-2">Concept Development</h4>
-                    <p className="text-gray-600">
-                      Our team creates detailed design concepts and 3D visualizations to bring your ideas to life. We refine these based on your feedback.
-                    </p>
-                  </div>
+                  )}
                 </div>
-                
-                <div className="flex">
-                  <div className="mr-4 flex-shrink-0">
-                    <div className="bg-gold text-white w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold">
-                      3
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold mb-2">Detailed Planning</h4>
-                    <p className="text-gray-600">
-                      We develop comprehensive plans, including technical drawings, material selections, and project timelines for a seamless execution.
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex">
-                  <div className="mr-4 flex-shrink-0">
-                    <div className="bg-gold text-white w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold">
-                      4
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold mb-2">Implementation</h4>
-                    <p className="text-gray-600">
-                      Our experienced team manages the entire implementation process, from sourcing materials to coordinating with contractors and vendors.
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex">
-                  <div className="mr-4 flex-shrink-0">
-                    <div className="bg-gold text-white w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold">
-                      5
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold mb-2">Final Handover</h4>
-                    <p className="text-gray-600">
-                      We conduct a final review to ensure every detail meets our high standards before presenting your transformed space.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
