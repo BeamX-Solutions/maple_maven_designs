@@ -31,9 +31,51 @@ const faqs = [
 
 const ContactPage: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
+
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', phone: '', service: '', message: '' }); // Reset form
+    } catch (error) {
+      setSubmitStatus('error');
+      setErrorMessage('There was an error sending your message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -53,14 +95,17 @@ const ContactPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <h3 className="text-2xl font-serif font-semibold mb-6">Get in Touch</h3>
-              
-              <form className="space-y-6">
+
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-gray-700 mb-2">Your Name</label>
                     <input
                       type="text"
                       id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold"
                       placeholder="John Doe"
                       required
@@ -71,27 +116,36 @@ const ContactPage: React.FC = () => {
                     <input
                       type="email"
                       id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold"
                       placeholder="john@example.com"
                       required
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <label htmlFor="phone" className="block text-gray-700 mb-2">Phone Number</label>
                   <input
                     type="tel"
                     id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold"
                     placeholder="+234 XXX XXX XXXX"
                   />
                 </div>
-                
+
                 <div>
                   <label htmlFor="service" className="block text-gray-700 mb-2">Service Interested In</label>
                   <select
                     id="service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold"
                     required
                   >
@@ -107,30 +161,43 @@ const ContactPage: React.FC = () => {
                     <option value="consultation">Building Project Consultation</option>
                   </select>
                 </div>
-                
+
                 <div>
                   <label htmlFor="message" className="block text-gray-700 mb-2">Your Message</label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold"
                     placeholder="Tell us about your project..."
                     required
                   ></textarea>
                 </div>
-                
+
+                {submitStatus === 'success' && (
+                  <p className="text-green-600">Message sent successfully!</p>
+                )}
+                {submitStatus === 'error' && (
+                  <p className="text-red-600">{errorMessage}</p>
+                )}
+
                 <button
                   type="submit"
-                  className="px-8 py-3 bg-gold text-white rounded hover:bg-gold/90 transition-colors text-lg font-medium w-full"
+                  disabled={isSubmitting}
+                  className={`px-8 py-3 bg-gold text-white rounded hover:bg-gold/90 transition-colors text-lg font-medium w-full ${
+                    isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             </div>
-            
+
             <div>
               <h3 className="text-2xl font-serif font-semibold mb-6">Our Offices</h3>
-              
+
               <div className="space-y-8">
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h4 className="font-serif text-xl font-semibold mb-4">Awka Office</h4>
@@ -157,7 +224,7 @@ const ContactPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h4 className="font-serif text-xl font-semibold mb-4">Lagos Office</h4>
                   <div className="space-y-4">
@@ -232,7 +299,7 @@ const ContactPage: React.FC = () => {
             <h2 className="text-3xl font-serif font-bold mb-4">Frequently Asked Questions</h2>
             <div className="w-16 h-1 bg-gold mx-auto mb-6"></div>
           </div>
-          
+
           <div className="max-w-3xl mx-auto space-y-4">
             {faqs.map((faq, index) => (
               <div key={index} className="bg-white p-4 rounded-lg shadow-md">
