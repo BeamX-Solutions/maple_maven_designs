@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
@@ -13,7 +13,6 @@ import './index.css';
 
 const App: React.FC = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(true); // Start with loading true to avoid initial flash
   const [pendingLocation, setPendingLocation] = useState(location.pathname);
 
