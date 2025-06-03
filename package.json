@@ -10,7 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@netlify/functions": "^4.1.2",
+    "dotenv": "^16.5.0",
     "lucide-react": "^0.284.0",
+    "nodemailer": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0"
