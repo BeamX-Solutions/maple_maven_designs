@@ -188,74 +188,72 @@ const PortfolioPage: React.FC = () => {
       {modalOpen && selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-80" onClick={closeProjectModal}>
           <div 
-            className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-auto"
+            className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-auto relative"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative">
-              <button 
-                className="absolute top-4 right-4 bg-gold text-white w-10 h-10 rounded-full flex items-center justify-center focus:outline-none"
-                onClick={closeProjectModal}
-              >
-                ×
-              </button>
-              
-              <div className="flex flex-col md:flex-row">
-                <div className="md:w-1/2">
-                  <div className="h-[500px] overflow-hidden"> {/* Increased height for better visibility */}
+            <button 
+              className="bg-gold text-white w-10 h-10 rounded-full flex items-center justify-center focus:outline-none fixed top-4 right-4 z-60"
+              onClick={closeProjectModal}
+            >
+              ×
+            </button>
+            
+            <div className="flex flex-col md:flex-row">
+              <div className="md:w-1/2">
+                <div className="h-[500px] overflow-hidden"> {/* Increased height for better visibility */}
+                  <img 
+                    src={selectedProject.fullImages[selectedImageIndex]} 
+                    alt={`${selectedProject.title} main view`} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-4 grid grid-cols-3 gap-2">
+                  {selectedProject.fullImages.map((img, index) => (
                     <img 
-                      src={selectedProject.fullImages[selectedImageIndex]} 
-                      alt={`${selectedProject.title} main view`} 
-                      className="w-full h-full object-cover"
+                      key={index}
+                      src={img} 
+                      alt={`${selectedProject.title} view ${index + 1}`} 
+                      className={`w-full h-24 object-cover rounded cursor-pointer hover:opacity-80 transition-opacity ${
+                        selectedImageIndex === index ? 'border-4 border-gold' : '' // Highlight selected image
+                      }`}
+                      onClick={() => handleImageClick(index)}
                     />
-                  </div>
-                  <div className="p-4 grid grid-cols-3 gap-2">
-                    {selectedProject.fullImages.map((img, index) => (
-                      <img 
-                        key={index}
-                        src={img} 
-                        alt={`${selectedProject.title} view ${index + 1}`} 
-                        className={`w-full h-24 object-cover rounded cursor-pointer hover:opacity-80 transition-opacity ${
-                          selectedImageIndex === index ? 'border-4 border-gold' : '' // Highlight selected image
-                        }`}
-                        onClick={() => handleImageClick(index)}
-                      />
-                    ))}
+                  ))}
+                </div>
+              </div>
+              
+              <div className="md:w-1/2 p-6">
+                <h3 className="font-serif text-3xl font-semibold mb-2">{selectedProject.title}</h3>
+                <div className="w-16 h-1 bg-gold mb-4"></div>
+                
+                <div className="mb-6">
+                  <div className="grid grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <p className="text-sm text-gray-500">Category</p>
+                      <p className="font-medium">{selectedProject.category}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Location</p>
+                      <p className="font-medium">{selectedProject.location}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Year</p>
+                      <p className="font-medium">{selectedProject.year}</p>
+                    </div>
                   </div>
                 </div>
                 
-                <div className="md:w-1/2 p-6">
-                  <h3 className="font-serif text-3xl font-semibold mb-2">{selectedProject.title}</h3>
-                  <div className="w-16 h-1 bg-gold mb-4"></div>
-                  
-                  <div className="mb-6">
-                    <div className="grid grid-cols-2 gap-4 mb-4">
-                      <div>
-                        <p className="text-sm text-gray-500">Category</p>
-                        <p className="font-medium">{selectedProject.category}</p>
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-500">Location</p>
-                        <p className="font-medium">{selectedProject.location}</p>
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-500">Year</p>
-                        <p className="font-medium">{selectedProject.year}</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <h4 className="font-semibold text-lg mb-2">Project Description</h4>
-                  <p className="text-gray-600 mb-6">
-                    {selectedProject.description}
-                  </p>
-                  
-                  <button 
-                    className="px-6 py-3 bg-gold text-white rounded hover:bg-gold/90 transition-colors"
-                    onClick={handleRequestSimilarDesign}
-                  >
-                    Request Similar Design
-                  </button>
-                </div>
+                <h4 className="font-semibold text-lg mb-2">Project Description</h4>
+                <p className="text-gray-600 mb-6">
+                  {selectedProject.description}
+                </p>
+                
+                <button 
+                  className="px-6 py-3 bg-gold text-white rounded hover:bg-gold/90 transition-colors"
+                  onClick={handleRequestSimilarDesign}
+                >
+                  Request Similar Design
+                </button>
               </div>
             </div>
           </div>
