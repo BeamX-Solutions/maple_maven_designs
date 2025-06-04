@@ -170,24 +170,24 @@ const HomePage: React.FC = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
                   <img 
-                    src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg"
+                    src="/maven-background.jpeg"
                     alt="Living Room Design"
                     className="w-full h-64 object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl"
                   />
                   <img 
-                    src="https://images.pexels.com/photos/6585757/pexels-photo-6585757.jpeg"
+                    src="/why-choose-us.jpeg"
                     alt="Kitchen Design"
                     className="w-full h-40 object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl"
                   />
                 </div>
                 <div className="space-y-4 mt-8">
                   <img 
-                    src="https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg"
+                    src="/why-choose-us.jpeg"
                     alt="Office Design"
                     className="w-full h-40 object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl"
                   />
                   <img 
-                    src="https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg"
+                    src="/maven-background-4.jpg"
                     alt="Modern Design"
                     className="w-full h-64 object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl"
                   />
