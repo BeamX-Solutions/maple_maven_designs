@@ -29,7 +29,7 @@ exports.handler = async (event) => {
 
     const mailOptions = {
       from: `"Maple Maven Designs" <${process.env.GMAIL_USER}>`,
-      to: 'ibehchimaobi98@gmail.com',
+      to: process.env.RECIPIENT_EMAILS.split(','),
       replyTo: email,
       subject: `New Contact Form Submission - ${service}`,
       text: `
