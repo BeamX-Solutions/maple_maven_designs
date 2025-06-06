@@ -152,8 +152,8 @@ const ContactPage: React.FC = () => {
                     <option value="">Select a service</option>
                     <option value="project-management">Project Management</option>
                     <option value="renovation">Renovation</option>
-                    <option value="interior/exterior-design">Interior/ Exterior Design</option>
-                    <option value="interior/exterior-architecture">Interior/ Exterior Architecture</option>
+                    <option value="interior/exterior-design">Interior/Exterior Design</option>
+                    <option value="interior-and-exterior-architecture">Interior and Exterior Architecture</option>
                     <option value="building-finishing">Building Finishing</option>
                     <option value="3d-graphical-modeling">3D Graphical Modeling</option>
                     <option value="retail-decor-and-furnishings">Retail Decor and Furnishings</option>
