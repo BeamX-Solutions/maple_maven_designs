@@ -32,17 +32,17 @@ const AboutPage: React.FC = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden group">
               <div className="relative overflow-hidden">
                 <img 
-                  src="https://images.pexels.com/photos/5324913/pexels-photo-5324913.jpeg" 
-                  alt="Sarah Johnson" 
+                  src="/first-person.jpg" 
+                  alt="Emeka Dioha" 
                   className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="p-6">
-                <h3 className="font-serif text-xl font-semibold mb-1">Sarah Johnson</h3>
-                <p className="text-gold mb-3">Founder & Principal Designer</p>
+                <h3 className="font-serif text-xl font-semibold mb-1">Emeka Dioha</h3>
+                <p className="text-gold mb-3">Creative Director & Project Manager</p>
                 <p className="text-gray-600 mb-4">
-                  With over 15 years of experience, Sarah leads our team with a passion for creating functional, beautiful spaces that enhance daily living.
+                  With over 15 years of experience, Emeka leads our team with a passion for creating functional, beautiful spaces that enhance daily living.
                 </p>
               </div>
             </div>
@@ -50,17 +50,17 @@ const AboutPage: React.FC = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden group">
               <div className="relative overflow-hidden">
                 <img 
-                  src="https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg" 
-                  alt="Michael Chen" 
+                  src="/second-person.jpg" 
+                  alt="Obinna Nweke" 
                   className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="p-6">
-                <h3 className="font-serif text-xl font-semibold mb-1">Michael Chen</h3>
-                <p className="text-gold mb-3">Lead Architect</p>
+                <h3 className="font-serif text-xl font-semibold mb-1">Obinna Nweke</h3>
+                <p className="text-gold mb-3">Client Services</p>
                 <p className="text-gray-600 mb-4">
-                  Michael specializes in creating innovative architectural solutions that blend form and function for both residential and commercial projects.
+                  Obinna ensures a smooth and responsive client experience by managing communications, expectations, and support from initial inquiry to project completion.
                 </p>
               </div>
             </div>
@@ -68,17 +68,17 @@ const AboutPage: React.FC = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden group">
               <div className="relative overflow-hidden">
                 <img 
-                  src="https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg" 
-                  alt="Olivia Martinez" 
+                  src="/third-person.jpg" 
+                  alt="Charles Dioha"
                   className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="p-6">
-                <h3 className="font-serif text-xl font-semibold mb-1">Olivia Martinez</h3>
-                <p className="text-gold mb-3">Interior Design Specialist</p>
+                <h3 className="font-serif text-xl font-semibold mb-1">Charles Dioha</h3>
+                <p className="text-gold mb-3">Legal Advisor</p>
                 <p className="text-gray-600 mb-4">
-                  Olivia brings creativity and attention to detail to every project, with expertise in color theory and spatial planning.
+                  Charles brings a wealth of knowledge in legal matters, ensuring that all our projects comply with regulations and standards.
                 </p>
               </div>
             </div>

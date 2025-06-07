@@ -17,6 +17,8 @@ interface Project {
 const HomePage: React.FC = () => {
   const [projectCount, setProjectCount] = useState(0);
   const [satisfactionCount, setSatisfactionCount] = useState(0);
+  const [experienceCount, setExperienceCount] = useState(0);
+  const [membersCount, setMembersCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
@@ -50,11 +52,15 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     if (!isVisible) return;
 
-    const projectTarget = 75;
+    const projectTarget = 30;
     const satisfactionTarget = 95;
+    const experienceTarget = 5;
+    const membersTarget = 15;
     const duration = 4000;
     const incrementProject = projectTarget / (duration / 16);
     const incrementSatisfaction = satisfactionTarget / (duration / 16);
+    const incrementExperience = experienceTarget / (duration / 16);
+    const incrementMembers = membersTarget / (duration / 16);
 
     let projectAnimation = setInterval(() => {
       setProjectCount((prev) => {
@@ -76,9 +82,31 @@ const HomePage: React.FC = () => {
       });
     }, 16);
 
+    let experienceAnimation = setInterval(() => {
+      setExperienceCount((prev) => {
+        if (prev >= experienceTarget) {
+          clearInterval(experienceAnimation);
+          return experienceTarget;
+        }
+        return Math.min(prev + incrementExperience, experienceTarget);
+      });
+    }, 16);
+
+    let membersAnimation = setInterval(() => {
+      setMembersCount((prev) => {
+        if (prev >= membersTarget) {
+          clearInterval(membersAnimation);
+          return membersTarget;
+        }
+        return Math.min(prev + incrementMembers, membersTarget);
+      });
+    }, 16);
+
     return () => {
       clearInterval(projectAnimation);
       clearInterval(satisfactionAnimation);
+      clearInterval(experienceAnimation);
+      clearInterval(membersAnimation);
     };
   }, [isVisible]);
 
@@ -216,11 +244,11 @@ const HomePage: React.FC = () => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-white p-6 rounded-lg shadow-md">
-                  <div className="text-4xl font-bold text-gold mb-2">4</div>
+                  <div className="text-4xl font-bold text-gold mb-2">{Math.round(experienceCount)}+</div>
                   <p className="text-gray-600">Years Experience</p>
                 </div>
                 <div className="bg-white p-6 rounded-lg shadow-md">
-                  <div className="text-4xl font-bold text-gold mb-2">15+</div>
+                  <div className="text-4xl font-bold text-gold mb-2">{Math.round(membersCount)}+</div>
                   <p className="text-gray-600">Expert Team Members</p>
                 </div>
               </div>
