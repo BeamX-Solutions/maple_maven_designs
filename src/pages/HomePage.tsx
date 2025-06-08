@@ -118,7 +118,7 @@ const HomePage: React.FC = () => {
       location: "Lagos, Nigeria",
       year: "2023",
       imageUrl: "/portfolio-living-room.jpeg",
-      description: "A complete transformation of a living space into a modern, comfortable sanctuary that reflects the client's personality and lifestyle. The design focuses on clean lines, neutral tones with bold accents, and a harmonious flow throughout the space.",
+      description: "A complete transformation of a living space into a modern, comfortable interior design sanctuary in Lagos, Nigeria, reflecting the client's lifestyle with clean lines and bold accents.",
       fullImages: [
         "/portfolio-living-room.jpeg",
         "/portfolio-living-room-2.jpeg",
@@ -133,7 +133,7 @@ const HomePage: React.FC = () => {
       location: "Lagos, Nigeria",
       year: "2023",
       imageUrl: "/portfolio-kids-bedroom.jpg",
-      description: "A playful and cozy kids' bedroom with themed decor, comfortable bedding, and safe furniture, designed to inspire creativity and ensure a restful environment for children.",
+      description: "A playful and cozy kids' bedroom interior design in Lagos, Nigeria, featuring themed decor and safe furniture to inspire creativity and ensure a restful environment.",
       fullImages: [
         "/portfolio-kids-bedroom.jpg",
         "/portfolio-kids-bedroom-2.jpg",
@@ -148,7 +148,7 @@ const HomePage: React.FC = () => {
       location: "Port Harcourt, Nigeria",
       year: "2023",
       imageUrl: "/portfolio-bathroom.jpg",
-      description: "Transformation of an outdated bathroom into a spa-like retreat with premium fixtures. The renovation included custom cabinetry, high-end finishes, and innovative storage solutions to create a luxurious yet practical space.",
+      description: "A luxurious bathroom renovation in Port Harcourt, Nigeria, transforming an outdated space into a spa-like retreat with custom cabinetry and high-end finishes.",
       fullImages: [
         "/portfolio-bathroom.jpg",
         "/portfolio-bathroom-2.jpg",
@@ -184,6 +184,11 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
+      <head>
+        <title>Maple Maven Designs - Creative Design Solutions</title>
+        <meta name="description" content="Discover Maple Maven Designs, a leading design agency in Nigeria offering interior design, renovation, and 3D modeling services. Explore our portfolio!" />
+        <meta name="keywords" content="Maple Maven Designs, design agency Nigeria, interior design services, design portfolio" />
+      </head>
       <HeroSection />
 
       {/* Why Choose Us Section */}
@@ -199,24 +204,24 @@ const HomePage: React.FC = () => {
                 <div className="space-y-4">
                   <img 
                     src="/maven-background.jpeg"
-                    alt="Living Room Design"
+                    alt="Living Room Design by Maple Maven Designs"
                     className="w-full h-64 object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl"
                   />
                   <img 
                     src="/why-choose-us.jpeg"
-                    alt="Kitchen Design"
+                    alt="Kitchen Design by Maple Maven Designs"
                     className="w-full h-40 object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl"
                   />
                 </div>
                 <div className="space-y-4 mt-8">
                   <img 
                     src="/why-choose-us.jpeg"
-                    alt="Office Design"
+                    alt="Office Design by Maple Maven Designs"
                     className="w-full h-40 object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl"
                   />
                   <img 
                     src="/maven-background-4.jpg"
-                    alt="Modern Design"
+                    alt="Modern Design by Maple Maven Designs"
                     className="w-full h-64 object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl"
                   />
                 </div>
@@ -230,7 +235,7 @@ const HomePage: React.FC = () => {
                 <div className="w-24 h-1 bg-gold mt-2 mb-6"></div>
               </div>
               <p className="text-gray-600 text-md leading-relaxed">
-                Experience excellence in design and execution with our dedicated team. We bring your vision to life with precision and creativity, ensuring every project reflects your unique style and needs.
+                Welcome to Maple Maven Designs, where innovation meets imagination. We specialize in custom interior design, renovation, and 3D modeling services across Nigeria, ensuring every project reflects your unique style and needs.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-white p-6 rounded-lg shadow-md">

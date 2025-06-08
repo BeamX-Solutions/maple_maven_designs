@@ -80,12 +80,17 @@ const ContactPage: React.FC = () => {
 
   return (
     <>
+      <head>
+        <title>Contact Maple Maven Designs - Request Custom Design</title>
+        <meta name="description" content="Contact Maple Maven Designs for custom design services in Nigeria. Get a quote for interior design, renovation, and more today!" />
+        <meta name="keywords" content="contact design services, custom design Nigeria, interior design quote, Maple Maven Designs" />
+      </head>
       <div className="pt-40 pb-12 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-center">Contact Us</h1>
           <div className="w-24 h-1 bg-gold mx-auto my-6"></div>
           <p className="text-gray-600 text-center max-w-2xl mx-auto">
-            Get in touch with our team to discuss your project or schedule a consultation.
+            Reach out to Maple Maven Designs for bespoke interior design, renovation, and 3D modeling services in Nigeria. Our team is ready to bring your vision to life—get a free quote today!
           </p>
         </div>
       </div>
