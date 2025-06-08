@@ -1,6 +1,7 @@
 import React from 'react';
 import { Phone, MapPin, Mail, Facebook, Instagram, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { AiOutlineTikTok } from 'react-icons/ai';
 
 const Footer: React.FC = () => {
   return (
@@ -47,6 +48,14 @@ const Footer: React.FC = () => {
                 className="text-gray-400 hover:text-gold transition-colors"
               >
                 <Twitter size={20} />
+              </a>
+              <a 
+                href="https://www.tiktok.com/@maplemavendesigns?_t=ZM-8x2Q6uRPbT4&_r=1" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-gold transition-colors"
+              >
+                <AiOutlineTikTok size={20} /> {/* TikTok icon */}
               </a>
             </div>
           </div>
