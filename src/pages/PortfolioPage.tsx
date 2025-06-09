@@ -25,7 +25,7 @@ const PortfolioPage: React.FC = () => {
       title: "Modern Living Room Redesign",
       category: "Interior Design",
       location: "Lagos, Nigeria",
-      year: "2023",
+      year: "2025",
       imageUrl: "/portfolio-living-room.jpeg",
       description: "A complete transformation of a living space into a modern, comfortable sanctuary that reflects the client's personality and lifestyle. The design focuses on clean lines, neutral tones with bold accents, and a harmonious flow throughout the space.",
       fullImages: [
@@ -40,7 +40,7 @@ const PortfolioPage: React.FC = () => {
       title: "Elegant Bar Lounge Design",
       category: "Commercial Design",
       location: "Abuja, Nigeria",
-      year: "2022",
+      year: "2024",
       imageUrl: "/portfolio-bar.jpg",
       description: "A sophisticated bar design featuring a sleek counter, ambient lighting, and an extensive wine storage system, creating an inviting atmosphere for social gatherings and relaxation.",
       fullImages: [
@@ -55,7 +55,7 @@ const PortfolioPage: React.FC = () => {
       title: "Luxury Bathroom Renovation",
       category: "Renovation",
       location: "Port Harcourt, Nigeria",
-      year: "2023",
+      year: "2024",
       imageUrl: "/portfolio-bathroom.jpg",
       description: "Transformation of an outdated bathroom into a spa-like retreat with premium fixtures. The renovation included custom cabinetry, high-end finishes, and innovative storage solutions to create a luxurious yet practical space.",
       fullImages: [
@@ -70,7 +70,7 @@ const PortfolioPage: React.FC = () => {
       title: "Contemporary Kitchen Design",
       category: "Interior Design",
       location: "Lagos, Nigeria",
-      year: "2022",
+      year: "2023",
       imageUrl: "/portfolio-kitchen.jpg",
       description: "A functional kitchen with modern appliances, smart storage solutions, and elegant finishes. The design prioritizes workflow efficiency while maintaining a stylish aesthetic that complements the home's overall design.",
       fullImages: [
@@ -84,7 +84,7 @@ const PortfolioPage: React.FC = () => {
       title: "Residential Exterior Redesign",
       category: "Exterior Design",
       location: "Awka, Nigeria",
-      year: "2021",
+      year: "2023",
       imageUrl: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
       description: "Complete exterior renovation including facade updates and landscaping design. The project focused on enhancing curb appeal while ensuring durability and minimal maintenance requirements.",
       fullImages: [

@@ -116,7 +116,7 @@ const HomePage: React.FC = () => {
       title: "Modern Living Room Redesign",
       category: "Interior Design",
       location: "Lagos, Nigeria",
-      year: "2023",
+      year: "2025",
       imageUrl: "/portfolio-living-room.jpeg",
       description: "A complete transformation of a living space into a modern, comfortable interior design sanctuary in Lagos, Nigeria, reflecting the client's lifestyle with clean lines and bold accents.",
       fullImages: [
@@ -146,7 +146,7 @@ const HomePage: React.FC = () => {
       title: "Luxury Bathroom Renovation",
       category: "Renovation",
       location: "Port Harcourt, Nigeria",
-      year: "2023",
+      year: "2024",
       imageUrl: "/portfolio-bathroom.jpg",
       description: "A luxurious bathroom renovation in Port Harcourt, Nigeria, transforming an outdated space into a spa-like retreat with custom cabinetry and high-end finishes.",
       fullImages: [

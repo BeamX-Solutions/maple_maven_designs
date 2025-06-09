@@ -32,7 +32,7 @@ const AboutPage: React.FC = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden group">
               <div className="relative overflow-hidden">
                 <img 
-                  src="/first-person.jpg" 
+                  src="/first-person1.jpg" 
                   alt="Emeka Dioha" 
                   className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -42,7 +42,7 @@ const AboutPage: React.FC = () => {
                 <h3 className="font-serif text-xl font-semibold mb-1">Emeka Dioha</h3>
                 <p className="text-gold mb-3">Creative Director & Project Manager</p>
                 <p className="text-gray-600 mb-4">
-                  With over 15 years of experience, Emeka leads our team with a passion for creating functional, beautiful spaces that enhance daily living.
+                  Emeka leads our team with a passion for creating functional, beautiful spaces that enhance daily living.
                 </p>
               </div>
             </div>
@@ -75,7 +75,7 @@ const AboutPage: React.FC = () => {
                 <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="p-6">
-                <h3 className="font-serif text-xl font-semibold mb-1">Charles Dioha</h3>
+                <h3 className="font-serif text-xl font-semibold mb-1">Barr. Charles Dioha</h3>
                 <p className="text-gold mb-3">Legal Advisor</p>
                 <p className="text-gray-600 mb-4">
                   Charles brings a wealth of knowledge in legal matters, ensuring that all our projects comply with regulations and standards.
