@@ -8,7 +8,7 @@ const AboutSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <p className="text-gray-600 mb-6">
-              Maple Maven Design is a premier interior design and architectural firm committed to creating extraordinary spaces that inspire and elevate everyday living. With our innovative approach and meticulous attention to detail, we transform environments into functional works of art.
+              Maple Maven Designs is a premier interior design and architectural firm committed to creating extraordinary spaces that inspire and elevate everyday living. With our innovative approach and meticulous attention to detail, we transform environments into functional works of art.
             </p>
             
             <p className="text-gray-600 mb-6">
@@ -69,7 +69,7 @@ const AboutSection: React.FC = () => {
               className="rounded-lg shadow-xl w-full h-auto object-cover"
             />
             
-            <div className="absolute bottom-0 right-0 transform translate-y-1/4 translate-x-1/4 md:translate-y-1/3 md:translate-x-1/3 bg-white p-6 rounded-lg shadow-xl max-w-xs">
+            <div className="absolute bottom-0 right-0 transform translate-y-1/4 md:translate-y-1/3 -translate-x-1/6 md:-translate-x-1/8 bg-white p-6 rounded-lg shadow-xl max-w-xs">
               <div className="text-center">
                 <h3 className="font-serif text-3xl font-bold text-gold">5+</h3>
                 <p className="text-gray-700">Years of Experience</p>
