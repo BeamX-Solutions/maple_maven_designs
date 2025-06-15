@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <Link to="/" className="text-2xl font-serif font-bold flex items-center">
               <img
-                src="/new-logo-3.jpg"
+                src="/logo34.png"
                 alt="Maple Maven Logo"
                 className={`mr-2 ${scrolled ? 'filter-gold' : 'filter-white'}`}
                 style={{

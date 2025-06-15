@@ -158,7 +158,7 @@ const ContactPage: React.FC = () => {
                     <option value="project-management">Project Management</option>
                     <option value="renovation">Renovation</option>
                     <option value="interior/exterior-design">Interior/Exterior Design</option>
-                    <option value="interior-and-exterior-architecture">Interior and Exterior Architecture</option>
+                    <option value="interior-and-exterior-architecture">Interior Architecture</option>
                     <option value="building-finishing">Building Finishing</option>
                     <option value="3d-graphical-modeling">3D Graphical Modeling</option>
                     <option value="retail-decor-and-furnishings">Retail Decor and Furnishings</option>
@@ -181,7 +181,7 @@ const ContactPage: React.FC = () => {
                 </div>
 
                 {submitStatus === 'success' && (
-                  <p className="text-green-600">Message sent successfully!</p>
+                  <p className="text-green-600">Your message has been sent successfully. We'll get back to you soon!</p>
                 )}
                 {submitStatus === 'error' && (
                   <p className="text-red-600">{errorMessage}</p>

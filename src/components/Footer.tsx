@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <div>
             <div className="mb-6 flex items-center">
               <img
-                src="/new-logo-3.jpg"
+                src="/logo34.png"
                 alt="Maple Maven Logo"
                 className="mr-2"
                 style={{
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
                   height: '50px',
                 }}
               />
-              <span className="font-serif text-xl">Maple Maven</span>
+              <span className="font-serif text-xl">Maple Maven Designs</span>
             </div>
             <p className="mb-6 text-gray-400">
               Designing Dreams, One Space at a Time. Innovation through imagination.
@@ -134,7 +134,7 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="mt-12 pt-8 border-t border-gray-800 flex justify-between items-center">
-          <p className="text-gray-500">© {new Date().getFullYear()} Maple Maven Design. All rights reserved.</p>
+          <p className="text-gray-500">© {new Date().getFullYear()} Maple Maven Designs. All rights reserved.</p>
           <a href="https://beamxsolutions.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gold transition-colors">
             Developed by BeamX Solutions
           </a>

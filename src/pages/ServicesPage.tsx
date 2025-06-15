@@ -8,7 +8,7 @@ const ServicesPage: React.FC = () => {
   const serviceProcess = [
     { id: 1, title: "Connect With Us", description: "Start by contacting us via DM, WhatsApp, or call to discuss your space and provide key visual details." },
     { id: 2, title: "Have a Budget", description: "Share your budget post-initial chat to guide the planning process (no visits without this)." },
-    { id: 3, title: "Site Visitation", description: "Plan a site visit based on your location, with potential extra charges outside Awka, Nigeria." },
+    { id: 3, title: "Site Visitation", description: "Plan a site visit based on your location, with potential extra charges outside Awka and Lagos." },
     { id: 4, title: "Design Concept Payment", description: "Make payment via invoice to resume design, based on agreed deliverables like moodboards or 3D models." },
     { id: 5, title: "Presentation & Approval", description: "Review and approve the design presentation, with adjustments if needed before proceeding." },
     { id: 6, title: "Quotation & Payment", description: "Receive and settle quotes following the approved moodboard." },

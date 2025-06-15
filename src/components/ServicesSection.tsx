@@ -29,8 +29,8 @@ const ServicesSection: React.FC = () => {
       icon: <PaintBucket size={36} />
     },
     {
-      title: "Interior and Exterior Architecture",
-      description: "Innovative architectural solutions that combine aesthetics with functionality for both interiors and exteriors.",
+      title: "Interior Architecture",
+      description: "Innovative architectural solutions that combine aesthetics with functionality for interiors.",
       icon: <Building size={36} />
     },
     {
