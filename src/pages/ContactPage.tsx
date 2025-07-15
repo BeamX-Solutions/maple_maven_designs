@@ -90,7 +90,7 @@ const ContactPage: React.FC = () => {
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-center">Contact Us</h1>
           <div className="w-24 h-1 bg-gold mx-auto my-6"></div>
           <p className="text-gray-600 text-center max-w-2xl mx-auto">
-            Reach out to Maple Maven Designs for bespoke interior design, renovation, and 3D modeling services in Nigeria. Our team is ready to bring your vision to life—get a free quote today!
+            Our team is ready to bring your vision to life, get a free quote today!
           </p>
         </div>
       </div>
