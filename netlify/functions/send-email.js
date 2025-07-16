@@ -9,7 +9,7 @@ exports.handler = async (event) => {
 
     const { data, error } = await resend.emails.send({
       from: 'admin@maplemavendesigns.com', // Replace with your verified domain email for production
-      to: ['ibehchimaobi98@gmail.com'], // Replace with your recipient emails
+      to: ['hello@maplemavendesigns.com', 'emeka.dioha@maplemavendesigns.com'], // Replace with your recipient emails
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
