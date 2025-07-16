@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Phone, MapPin, Clock, ChevronDown, ChevronUp } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 
 const faqs = [
   {
@@ -67,52 +66,43 @@ const ContactPage = () => {
     };
   }
 
-  const handleChange = (e: ChangeEvent): void => {
+  const handleChange = (e: ChangeEvent) => {
     const { name, value } = e.target;
     setFormData((prev: FormData) => ({ ...prev, [name]: value }));
   };
 
-  interface EmailJSParams {
-    [key: string]: string;
+  interface SubmitResult {
+    error?: string;
+    [key: string]: any;
   }
 
-  interface SubmitEvent extends React.FormEvent<HTMLFormElement> {}
-
-  const handleSubmit = (e: SubmitEvent): void => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
     setErrorMessage('');
 
-    const params: EmailJSParams = {
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      service: formData.service,
-      message: formData.message,
-      from_name: formData.name,
-    };
-
-    emailjs
-      .send(
-        'service_fyu5tk6', 
-        'template_fcwv9qk', 
-        params,
-        '6wCVFYyRQR3kN1U3L' 
-      )
-      .then(
-        () => {
-          setSubmitStatus('success');
-          setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-        },
-        () => {
-          setSubmitStatus('error');
-          setErrorMessage('There was an error sending your message. Please try again later.');
-        }
-      )
-      .finally(() => {
-        setIsSubmitting(false);
+    try {
+      const response: Response = await fetch('/.netlify/functions/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
+
+      const result: SubmitResult = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send email');
+      }
+
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    } catch (error) {
+      setSubmitStatus('error');
+      setErrorMessage('There was an error sending your message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
