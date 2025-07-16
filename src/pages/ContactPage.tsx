@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, MapPin, Clock, ChevronDown, ChevronUp } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const faqs = [
   {
@@ -29,7 +30,7 @@ const faqs = [
   },
 ];
 
-const ContactPage: React.FC = () => {
+const ContactPage = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -39,52 +40,83 @@ const ContactPage: React.FC = () => {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const toggleFAQ = (index: number) => {
+  interface FAQ {
+    question: string;
+    answer: string;
+  }
+
+  interface FormData {
+    name: string;
+    email: string;
+    phone: string;
+    service: string;
+    message: string;
+  }
+
+  const toggleFAQ = (index: number): void => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  interface ChangeEvent {
+    target: {
+      name: string;
+      value: string;
+    };
+  }
+
+  const handleChange = (e: ChangeEvent): void => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev: FormData) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  interface EmailJSParams {
+    [key: string]: string;
+  }
+
+  interface SubmitEvent extends React.FormEvent<HTMLFormElement> {}
+
+  const handleSubmit = (e: SubmitEvent): void => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
     setErrorMessage('');
 
-    try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+    const params: EmailJSParams = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      service: formData.service,
+      message: formData.message,
+      from_name: formData.name,
+    };
+
+    emailjs
+      .send(
+        'service_fyu5tk6', 
+        'template_fcwv9qk', 
+        params,
+        '6wCVFYyRQR3kN1U3L' 
+      )
+      .then(
+        () => {
+          setSubmitStatus('success');
+          setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+        },
+        () => {
+          setSubmitStatus('error');
+          setErrorMessage('There was an error sending your message. Please try again later.');
+        }
+      )
+      .finally(() => {
+        setIsSubmitting(false);
       });
-
-      if (!response.ok) {
-        throw new Error('Failed to send email');
-      }
-
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', phone: '', service: '', message: '' }); // Reset form
-    } catch (error) {
-      setSubmitStatus('error');
-      setErrorMessage('There was an error sending your message. Please try again later.');
-    } finally {
-      setIsSubmitting(false);
-    }
   };
 
   return (
-    <>
-      <head>
-        <title>Contact Maple Maven Designs - Request Custom Design</title>
-        <meta name="description" content="Contact Maple Maven Designs for custom design services in Nigeria. Get a quote for interior design, renovation, and more today!" />
-        <meta name="keywords" content="contact design services, custom design Nigeria, interior design quote, Maple Maven Designs" />
-      </head>
+    <div>
       <div className="pt-40 pb-12 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-center">Contact Us</h1>
@@ -328,7 +360,7 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
