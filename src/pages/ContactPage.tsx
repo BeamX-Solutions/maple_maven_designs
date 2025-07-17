@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, MapPin, Clock, ChevronDown, ChevronUp } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const faqs = [
   {
@@ -107,6 +108,11 @@ const ContactPage = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Maple Maven Designs - Contact Us</title>
+        <meta name="description" content="Get in touch with Maple Maven Designs for your interior design and renovation needs in Nigeria. Contact us today!" />
+        <meta name="keywords" content="Maple Maven Designs contact, interior design Nigeria, renovation inquiries" />
+      </Helmet>
       <div className="pt-40 pb-12 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-center">Contact Us</h1>

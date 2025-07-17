@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
@@ -13,11 +14,10 @@ import './index.css';
 
 const App: React.FC = () => {
   const location = useLocation();
-  const [loading, setLoading] = useState(true); // Start with loading true to avoid initial flash
+  const [loading, setLoading] = useState(true);
   const [pendingLocation, setPendingLocation] = useState(location.pathname);
 
   useEffect(() => {
-    // When the location changes, set loading to true and store the new location
     if (location.pathname !== pendingLocation) {
       setLoading(true);
       setPendingLocation(location.pathname);
@@ -25,12 +25,10 @@ const App: React.FC = () => {
   }, [location.pathname, pendingLocation]);
 
   useEffect(() => {
-    // If loading is true, start the timer to stop loading after 2 seconds
     if (loading) {
       const timer = setTimeout(() => {
         setLoading(false);
-      }, 2000); // Show loading for ~2 seconds
-
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [loading]);
@@ -41,7 +39,7 @@ const App: React.FC = () => {
       <div className="flex flex-col min-h-screen">
         <Navbar />
         {loading ? (
-          <main className="flex-grow" /> // Empty placeholder to maintain layout
+          <main className="flex-grow" />
         ) : (
           <main className="flex-grow">
             <Routes location={location}>
@@ -62,8 +60,10 @@ const App: React.FC = () => {
 const AppWrapper: React.FC = () => {
   return (
     <Router>
-      <ScrollToTop />
-      <App />
+      <HelmetProvider>
+        <ScrollToTop />
+        <App />
+      </HelmetProvider>
     </Router>
   );
 };

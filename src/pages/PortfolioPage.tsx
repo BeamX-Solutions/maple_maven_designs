@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Assuming React Router is used
 import CTASection from '../components/CTASection';
+import { Helmet } from 'react-helmet-async';
 
 interface Project {
   id: number;
@@ -136,6 +137,11 @@ const PortfolioPage: React.FC = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Maple Maven Designs - Portfolio</title>
+        <meta name="description" content="Browse Maple Maven Designs' portfolio of interior design and renovation projects across Nigeria, showcasing creativity and craftsmanship." />
+        <meta name="keywords" content="Maple Maven Designs portfolio, interior design projects Nigeria, renovation portfolio" />
+      </Helmet>
       <div className="pt-40 pb-12 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <h1 className="text-5xl md:text-6xl font-serif font-bold text-center">Our Portfolio</h1>

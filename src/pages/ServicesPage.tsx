@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ServicesSection from '../components/ServicesSection';
 import CTASection from '../components/CTASection';
+import { Helmet } from 'react-helmet-async';
 
 const ServicesPage: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number | null>(null);
@@ -23,6 +24,11 @@ const ServicesPage: React.FC = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Maple Maven Designs - Our Services</title>
+        <meta name="description" content="Explore the interior design, renovation, and 3D modeling services offered by Maple Maven Designs in Nigeria. Tailored solutions for your unique needs." />
+        <meta name="keywords" content="interior design Nigeria, renovation services, 3D modeling, Maple Maven Designs services" />
+      </Helmet>
       <div className="pt-40 pb-12 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <h1 className="text-5xl md:text-6xl font-serif font-bold text-center">Our Services</h1>

@@ -2,10 +2,16 @@ import React from 'react';
 import AboutSection from '../components/AboutSection';
 import Testimonials from '../components/Testimonials';
 import CTASection from '../components/CTASection';
+import { Helmet } from 'react-helmet-async';
 
 const AboutPage: React.FC = () => {
   return (
     <div>
+      <Helmet>
+        <title>Maple Maven Designs - About Us</title>
+        <meta name="description" content="Learn about Maple Maven Designs, a leading design agency in Nigeria, and our mission to create inspiring spaces." />
+        <meta name="keywords" content="Maple Maven Designs about, design agency Nigeria, interior design team" />
+      </Helmet>
       <div className="pt-40 pb-12 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-center">About Us</h1>

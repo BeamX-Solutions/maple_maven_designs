@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import HeroSection from '../components/HeroSection';
 import CTASection from '../components/CTASection';
 
@@ -184,11 +185,11 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
-      <head>
+      <Helmet>
         <title>Maple Maven Designs - Creative Design Solutions</title>
         <meta name="description" content="Discover Maple Maven Designs, a leading design agency in Nigeria offering interior design, renovation, and 3D modeling services. Explore our portfolio!" />
         <meta name="keywords" content="Maple Maven Designs, design agency Nigeria, interior design services, design portfolio" />
-      </head>
+      </Helmet>
       <HeroSection />
 
       {/* Why Choose Us Section */}
