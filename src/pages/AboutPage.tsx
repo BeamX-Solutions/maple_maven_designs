@@ -64,9 +64,9 @@ const AboutPage: React.FC = () => {
               </div>
               <div className="p-6">
                 <h3 className="font-serif text-xl font-semibold mb-1">Obinna Nweke</h3>
-                <p className="text-gold mb-3">Client Services</p>
+                <p className="text-gold mb-3">Business Consultant</p>
                 <p className="text-gray-600 mb-4">
-                  Obinna ensures a smooth and responsive client experience by managing communications, expectations, and support from initial inquiry to project completion.
+                  Obinna provides strategic guidance and ensures successful project delivery from consultation to completion.
                 </p>
               </div>
             </div>
