@@ -10,6 +10,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
 import LoadingOverlay from './components/LoadingOverlay';
+import WhatsAppFloat from './components/WhatsAppFloat';
 import './index.css';
 
 const App: React.FC = () => {
@@ -53,6 +54,7 @@ const App: React.FC = () => {
         )}
         <Footer />
       </div>
+      <WhatsAppFloat />
     </>
   );
 };
