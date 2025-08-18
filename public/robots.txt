@@ -1,4 +1,3 @@
-# robots.txt for Maple Maven Designs
 User-agent: *
 Disallow: /admin/          
 Disallow: /private/  
