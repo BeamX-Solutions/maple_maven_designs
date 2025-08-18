@@ -1,0 +1,6 @@
+# robots.txt for Maple Maven Designs
+User-agent: *
+Disallow: /admin/          
+Disallow: /private/  
+Allow: /        
+Sitemap: https://www.maplemavendesigns.com/sitemap.xml
