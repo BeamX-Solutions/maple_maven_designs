@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Assuming React Router is used
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CTASection from '../components/CTASection';
 import { Helmet } from 'react-helmet-async';
 
@@ -17,12 +17,29 @@ interface Project {
 const PortfolioPage: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0); // Track the selected image index
-  const navigate = useNavigate(); // For navigation to ContactPage
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const navigate = useNavigate();
 
   const projects: Project[] = [
     {
       id: 1,
+      title: "Cafe One Calabar",
+      category: "Interior Design",
+      location: "Calabar, Nigeria",
+      year: "2025",
+      imageUrl: "/cafe-one-calabar-6.JPG",
+      description: "This project was special to us because it wasn’t just about designing a café, it was about shaping an experience. We created a space where work and leisure flow seamlessly with warm textures, custom seating, and thoughtful details that make people feel both productive and at ease. For us, Café One reflects what design should be: functional, inviting, and full of life.",
+      fullImages: [
+        "/cafe-one-calabar-6.JPG",
+        "/cafe-one-calabar-1.JPG",
+        "/cafe-one-calabar-3.JPG",
+        "/cafe-one-calabar-5.JPG",
+        "/cafe-one-calabar-2.JPG",
+        "/cafe-one-calabar-4.JPG"
+      ]
+    },
+    {
+      id: 2,
       title: "Modern Living Room Redesign",
       category: "Interior Design",
       location: "Lagos, Nigeria",
@@ -37,7 +54,70 @@ const PortfolioPage: React.FC = () => {
       ]
     },
     {
-      id: 2,
+      id: 3,
+      title: "Project ULK",
+      category: "Exterior Design",
+      location: "Port Harcourt, Nigeria",
+      year: "2025",
+      imageUrl: "/project-ulk-1.jpg",
+      description: "With ULK, we explored the harmony between modern living and nature. This biophilic project was designed to bring the outdoors in by using natural textures, earthy tones, and organic forms to create a refreshing, restorative environment. Every element was intentional, blurring the line between architecture and nature, and turning the space into a living experience.",
+      fullImages: [
+        "/project-ulk-1.jpg",
+        "/project-ulk-2.jpg",
+        "/project-ulk-3.jpg",
+        "/project-ulk-4.jpg",
+      ]
+    },
+    {
+      id: 4,
+      title: "Project GRG",
+      category: "Exterior and Interior Design",
+      location: "Port Harcourt, Nigeria",
+      year: "2025",
+      imageUrl: "/project-grg-1.jpg",
+      description: "GRG is a study in modern minimalism, a home defined by clean lines, open spaces, and purposeful simplicity. Every detail was curated to celebrate light, function, and flow, creating a space that feels both refined and effortlessly livable.",
+      fullImages: [
+        "/project-grg-1.jpg",
+        "/project-grg-2.jpg",
+        "/project-grg-3.jpg",
+        "/project-grg-4.jpg",
+        "/project-grg-5.jpg",
+      ]
+    },
+    {
+      id: 5,
+      title: "Project ASB",
+      category: "Interior Design",
+      location: "Asaba, Nigeria",
+      year: "2024",
+      imageUrl: "/project-asb-1.jpg",
+      description: "For this project, we drew inspiration from the warm depth of cappuccino tones by layering soft neutrals and rich accents to create a space that feels both grounded and refined. Every detail was chosen to highlight comfort while maintaining a sophisticated balance, making the design as inviting as it is timeless.",
+      fullImages: [
+        "/project-asb-1.jpg",
+        "/project-asb-2.jpg",
+        "/project-asb-3.jpg",
+        "/project-asb-4.jpg",
+        "/project-asb-5.jpg",
+        "/project-asb-6.jpg"
+      ]
+    },
+    {
+      id: 6,
+      title: "Snappy Logistics",
+      category: "Commercial Design",
+      location: "Enugu, Nigeria",
+      year: "2024",
+      imageUrl: "/snappy-logistics-2.jpg",
+      description: "This project allowed us to play with creativity in a bold way. For Snappy, we introduced custom murals that brought their brand identity to life, adding color, movement, and storytelling to the walls. The design blends function with character, a space that feels practical for logistics yet vibrant enough to inspire the team behind it.",
+      fullImages: [
+        "/snappy-logistics-2.jpg",
+        "/snappy-logistics-1.jpg",
+        "/snappy-logistics-4.jpg",
+        "/snappy-logistics-3.jpg"
+      ]
+    },
+    {
+      id: 7,
       title: "Elegant Bar Lounge Design",
       category: "Commercial Design",
       location: "Abuja, Nigeria",
@@ -52,22 +132,7 @@ const PortfolioPage: React.FC = () => {
       ]
     },
     {
-      id: 3,
-      title: "Luxury Bathroom Renovation",
-      category: "Renovation",
-      location: "Port Harcourt, Nigeria",
-      year: "2024",
-      imageUrl: "/portfolio-bathroom.jpg",
-      description: "Transformation of an outdated bathroom into a spa-like retreat with premium fixtures. The renovation included custom cabinetry, high-end finishes, and innovative storage solutions to create a luxurious yet practical space.",
-      fullImages: [
-        "/portfolio-bathroom.jpg",
-        "/portfolio-bathroom-2.jpg",
-        "/portfolio-bathroom-3.jpg",
-        "/portfolio-bathroom-4.jpg",
-      ]
-    },
-    {
-      id: 4,
+      id: 8,
       title: "Contemporary Kitchen Design",
       category: "Interior Design",
       location: "Lagos, Nigeria",
@@ -81,21 +146,7 @@ const PortfolioPage: React.FC = () => {
       ]
     },
     {
-      id: 5,
-      title: "Residential Exterior Redesign",
-      category: "Exterior Design",
-      location: "Awka, Nigeria",
-      year: "2023",
-      imageUrl: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
-      description: "Complete exterior renovation including facade updates and landscaping design. The project focused on enhancing curb appeal while ensuring durability and minimal maintenance requirements.",
-      fullImages: [
-        "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
-        "https://images.pexels.com/photos/164558/pexels-photo-164558.jpeg",
-        "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg"
-      ]
-    },
-    {
-      id: 6,
+      id: 9,
       title: "Redesigned Kids' Bedroom",
       category: "Interior Design",
       location: "Lagos, Nigeria",
@@ -113,7 +164,7 @@ const PortfolioPage: React.FC = () => {
 
   const openProjectModal = (project: Project) => {
     setSelectedProject(project);
-    setSelectedImageIndex(0); // Set the first image as default
+    setSelectedImageIndex(0);
     setModalOpen(true);
     document.body.style.overflow = 'hidden';
   };
@@ -126,14 +177,27 @@ const PortfolioPage: React.FC = () => {
 
   const handleImageClick = (index: number) => {
     if (selectedImageIndex !== index) {
-      setSelectedImageIndex(index); // Only update if a different image is clicked
+      setSelectedImageIndex(index);
     }
   };
 
   const handleRequestSimilarDesign = () => {
-    navigate('/contact'); // Navigate to ContactPage using React Router
-    closeProjectModal(); // Close the modal after navigation
+    navigate('/contact');
+    closeProjectModal();
   };
+
+  // Auto-rotate images every 3 seconds when modal is open
+  useEffect(() => {
+    if (modalOpen && selectedProject) {
+      const interval = setInterval(() => {
+        setSelectedImageIndex((prevIndex) => 
+          (prevIndex + 1) % selectedProject.fullImages.length
+        );
+      }, 3000); // Change image every 3 seconds
+
+      return () => clearInterval(interval); // Clear interval when modal closes or component unmounts
+    }
+  }, [modalOpen, selectedProject]);
 
   return (
     <div>
@@ -206,10 +270,10 @@ const PortfolioPage: React.FC = () => {
             
             <div className="flex flex-col md:flex-row">
               <div className="md:w-1/2">
-                <div className="h-[500px] overflow-hidden"> {/* Increased height for better visibility */}
+                <div className="h-[500px] overflow-hidden">
                   <img 
                     src={selectedProject.fullImages[selectedImageIndex]} 
-                    alt={`${selectedProject.title} main view`} 
+                    alt={`${selectedProject.title} view ${selectedImageIndex + 1}`} 
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -220,7 +284,7 @@ const PortfolioPage: React.FC = () => {
                       src={img} 
                       alt={`${selectedProject.title} view ${index + 1}`} 
                       className={`w-full h-24 object-cover rounded cursor-pointer hover:opacity-80 transition-opacity ${
-                        selectedImageIndex === index ? 'border-4 border-gold' : '' // Highlight selected image
+                        selectedImageIndex === index ? 'border-4 border-gold' : ''
                       }`}
                       onClick={() => handleImageClick(index)}
                     />
