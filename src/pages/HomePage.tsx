@@ -114,49 +114,54 @@ const HomePage: React.FC = () => {
   const featuredProjects: Project[] = [
     {
       id: 1,
-      title: "Modern Living Room Redesign",
+      title: "Cafe One Calabar",
       category: "Interior Design",
-      location: "Lagos, Nigeria",
+      location: "Calabar, Nigeria",
       year: "2025",
-      imageUrl: "/portfolio-living-room.jpeg",
-      description: "A complete transformation of a living space into a modern, comfortable interior design sanctuary in Lagos, Nigeria, reflecting the client's lifestyle with clean lines and bold accents.",
+      imageUrl: "/cafe-one-calabar-6.JPG",
+      description: "This project was special to us because it wasn’t just about designing a café, it was about shaping an experience. We created a space where work and leisure flow seamlessly with warm textures, custom seating, and thoughtful details that make people feel both productive and at ease. For us, Café One reflects what design should be: functional, inviting, and full of life.",
       fullImages: [
-        "/portfolio-living-room.jpeg",
-        "/portfolio-living-room-2.jpeg",
-        "/portfolio-living-room-3.jpeg",
-        "/portfolio-living-room-4.jpeg"
+        "/cafe-one-calabar-6.JPG",
+        "/cafe-one-calabar-1.JPG",
+        "/cafe-one-calabar-3.JPG",
+        "/cafe-one-calabar-5.JPG",
+        "/cafe-one-calabar-2.JPG",
+        "/cafe-one-calabar-4.JPG"
       ]
     },
     {
-      id: 6,
-      title: "Redesigned Kids' Bedroom",
-      category: "Interior Design",
-      location: "Lagos, Nigeria",
-      year: "2023",
-      imageUrl: "/portfolio-kids-bedroom.jpg",
-      description: "A playful and cozy kids' bedroom interior design in Lagos, Nigeria, featuring themed decor and safe furniture to inspire creativity and ensure a restful environment.",
+      id: 2,
+      title: "Project GRG",
+      category: "Exterior and Interior Design",
+      location: "Port Harcourt, Nigeria",
+      year: "2025",
+      imageUrl: "/project-grg-1.jpg",
+      description: "GRG is a study in modern minimalism, a home defined by clean lines, open spaces, and purposeful simplicity. Every detail was curated to celebrate light, function, and flow, creating a space that feels both refined and effortlessly livable.",
       fullImages: [
-        "/portfolio-kids-bedroom.jpg",
-        "/portfolio-kids-bedroom-2.jpg",
-        "/portfolio-kids-bedroom-3.jpg",
-        "/portfolio-kids-bedroom-4.jpg"
+        "/project-grg-1.jpg",
+        "/project-grg-2.jpg",
+        "/project-grg-3.jpg",
+        "/project-grg-4.jpg",
+        "/project-grg-5.jpg",
       ]
     },
     {
       id: 3,
-      title: "Luxury Bathroom Renovation",
-      category: "Renovation",
-      location: "Port Harcourt, Nigeria",
+      title: "Project ASB",
+      category: "Interior Design",
+      location: "Asaba, Nigeria",
       year: "2024",
-      imageUrl: "/portfolio-bathroom.jpg",
-      description: "A luxurious bathroom renovation in Port Harcourt, Nigeria, transforming an outdated space into a spa-like retreat with custom cabinetry and high-end finishes.",
+      imageUrl: "/project-asb-1.jpg",
+      description: "For this project, we drew inspiration from the warm depth of cappuccino tones by layering soft neutrals and rich accents to create a space that feels both grounded and refined. Every detail was chosen to highlight comfort while maintaining a sophisticated balance, making the design as inviting as it is timeless.",
       fullImages: [
-        "/portfolio-bathroom.jpg",
-        "/portfolio-bathroom-2.jpg",
-        "/portfolio-bathroom-3.jpg",
-        "/portfolio-bathroom-4.jpg",
+        "/project-asb-1.jpg",
+        "/project-asb-2.jpg",
+        "/project-asb-3.jpg",
+        "/project-asb-4.jpg",
+        "/project-asb-5.jpg",
+        "/project-asb-6.jpg"
       ]
-    }
+    },
   ];
 
   const openProjectModal = (project: Project) => {
