@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import HeroSection from '../components/HeroSection';
 import CTASection from '../components/CTASection';
+import AcademyCTA from '../components/AcademyCTA';
 
 interface Project {
   id: number;
@@ -130,7 +130,7 @@ const HomePage: React.FC = () => {
       ]
     },
     {
-      id: 2,
+      id: 4,
       title: "Project GRG",
       category: "Exterior and Interior Design",
       location: "Port Harcourt, Nigeria",
@@ -146,7 +146,7 @@ const HomePage: React.FC = () => {
       ]
     },
     {
-      id: 3,
+      id: 5,
       title: "Project ASB",
       category: "Interior Design",
       location: "Asaba, Nigeria",
@@ -161,7 +161,7 @@ const HomePage: React.FC = () => {
         "/project-asb-5.jpg",
         "/project-asb-6.jpg"
       ]
-    },
+    }
   ];
 
   const openProjectModal = (project: Project) => {
@@ -190,11 +190,11 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
-      <Helmet>
+      <head>
         <title>Maple Maven Designs - Creative Design Solutions</title>
         <meta name="description" content="Discover Maple Maven Designs, a leading design agency in Nigeria offering interior design, renovation, and 3D modeling services. Explore our portfolio!" />
         <meta name="keywords" content="Maple Maven Designs, design agency Nigeria, interior design services, design portfolio" />
-      </Helmet>
+      </head>
       <HeroSection />
 
       {/* Why Choose Us Section */}
@@ -392,6 +392,9 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Academy CTA Section */}
+      <AcademyCTA />
 
       <CTASection />
     </div>

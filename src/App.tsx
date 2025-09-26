@@ -8,6 +8,7 @@ import ServicesPage from './pages/ServicesPage';
 import PortfolioPage from './pages/PortfolioPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import AcademyPage from './pages/AcademyPage';
 import Footer from './components/Footer';
 import LoadingOverlay from './components/LoadingOverlay';
 import WhatsAppFloat from './components/WhatsAppFloat';
@@ -48,6 +49,7 @@ const App: React.FC = () => {
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/portfolio" element={<PortfolioPage />} />
               <Route path="/about" element={<AboutPage />} />
+              <Route path="/academy" element={<AcademyPage />} />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
           </main>

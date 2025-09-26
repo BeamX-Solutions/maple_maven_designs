@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Mail, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Phone, MapPin, Mail, Facebook, Instagram, Twitter, GraduationCap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { AiOutlineTikTok } from 'react-icons/ai';
 
@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <div>
             <div className="mb-6 flex items-center">
               <img
-                src="/logo34.png"
+                src="/logo.png"
                 alt="Maple Maven Logo"
                 className="mr-2"
                 style={{
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
                   height: '50px',
                 }}
               />
-              <span className="font-serif text-xl">Maple Maven Designs</span>
+              <span className="font-serif text-xl">Maple Maven</span>
             </div>
             <p className="mb-6 text-gray-400">
               Designing Dreams, One Space at a Time. Innovation through imagination.
@@ -76,6 +76,13 @@ const Footer: React.FC = () => {
                 <Link to="/portfolio" className="text-gray-400 hover:text-gold transition-colors">Portfolio</Link>
               </li>
               <li>
+                <Link to="/academy" className="text-gray-400 hover:text-gold/80 transition-colors flex items-center">
+                  <GraduationCap size={16} className="mr-1" />
+                  Academy
+                  <span className="ml-1 text-xs bg-red-500 text-white px-1 rounded">NEW</span>
+                </Link>
+              </li>
+              <li>
                 <Link to="/contact" className="text-gray-400 hover:text-gold transition-colors">Contact</Link>
               </li>
             </ul>
@@ -94,7 +101,7 @@ const Footer: React.FC = () => {
                 <Link to="/services#interior-design" className="text-gray-400 hover:text-gold transition-colors">Interior Design</Link>
               </li>
               <li>
-                <Link to="/services#architecture" className="text-gray-400 hover:text-gold transition-colors">Building Finishing</Link>
+                <Link to="/services#architecture" className="text-gray-400 hover:text-gold transition-colors">Architecture</Link>
               </li>
               <li>
                 <Link to="/services#3d-modeling" className="text-gray-400 hover:text-gold transition-colors">3D Graphical Modeling</Link>
@@ -126,18 +133,16 @@ const Footer: React.FC = () => {
               <li className="flex">
                 <Mail className="text-gold w-5 h-5 mt-1 mr-3 flex-shrink-0" />
                 <div className="text-gray-400">
-                  info@maplemavendesigns.com
+                  info@maplemaven.com
                 </div>
               </li>
             </ul>
           </div>
         </div>
         
-        <div className="mt-12 pt-8 border-t border-gray-800 flex justify-between items-center">
-          <p className="text-gray-500">© {new Date().getFullYear()} Maple Maven Designs. All rights reserved.</p>
-          <a href="https://beamxsolutions.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gold transition-colors">
-            Developed by BeamX Solutions
-          </a>
+        <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500">
+          <p>© {new Date().getFullYear()} Maple Maven Design. All rights reserved.</p>
+          <p className="mt-2">...INNOVATION THROUGH IMAGINATION...</p>
         </div>
       </div>
     </footer>
