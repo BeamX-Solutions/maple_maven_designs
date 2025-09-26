@@ -267,7 +267,7 @@ const AcademyPage: React.FC = () => {
                   <Award className="text-gold w-8 h-8 mr-3" />
                   <div>
                     <h4 className="font-semibold text-lg">Industry Recognition</h4>
-                    <p className="text-gray-600">Certified by leading design associations</p>
+                    <p className="text-gray-600">Certified by leading design experts</p>
                   </div>
                 </div>
               </div>
