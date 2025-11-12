@@ -140,9 +140,17 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500">
-          <p>© {new Date().getFullYear()} Maple Maven Design. All rights reserved.</p>
-          <p className="mt-2">...INNOVATION THROUGH IMAGINATION...</p>
+        <div className="mt-12 pt-8 border-t border-gray-800 flex justify-between items-center text-gray-500">
+          <p className="text-sm">© {new Date().getFullYear()} Maple Maven Design. All rights reserved.</p>
+          <p className="text-sm">INNOVATION THROUGH IMAGINATION</p>
+          <a 
+            href="https://beamxsolutions.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-sm text-gray-400 hover:text-gold transition-colors"
+          >
+            Developed by BeamX Solutions
+          </a>
         </div>
       </div>
     </footer>
