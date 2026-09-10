@@ -1,5 +1,6 @@
 import React from 'react';
-import { Phone, MapPin, Mail, Facebook, Instagram, Twitter, GraduationCap } from 'lucide-react';
+import { Phone, MapPin, Mail, Facebook, Instagram, Twitter } from 'lucide-react';
+// import { GraduationCap } from 'lucide-react'; // Academy (temporarily disabled)
 import { Link } from 'react-router-dom';
 import { AiOutlineTikTok } from 'react-icons/ai';
 
@@ -75,6 +76,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link to="/portfolio" className="text-gray-400 hover:text-gold transition-colors">Portfolio</Link>
               </li>
+              {/* Academy (temporarily disabled)
               <li>
                 <Link to="/academy" className="text-gray-400 hover:text-gold/80 transition-colors flex items-center">
                   <GraduationCap size={16} className="mr-1" />
@@ -82,6 +84,7 @@ const Footer: React.FC = () => {
                   <span className="ml-1 text-xs bg-red-500 text-white px-1 rounded">NEW</span>
                 </Link>
               </li>
+              */}
               <li>
                 <Link to="/contact" className="text-gray-400 hover:text-gold transition-colors">Contact</Link>
               </li>

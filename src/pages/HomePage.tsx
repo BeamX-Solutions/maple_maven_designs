@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
 import CTASection from '../components/CTASection';
-import AcademyCTA from '../components/AcademyCTA';
+// import AcademyCTA from '../components/AcademyCTA'; // Academy (temporarily disabled)
 
 interface Project {
   id: number;
@@ -393,8 +393,9 @@ const HomePage: React.FC = () => {
         </div>
       )}
 
-      {/* Academy CTA Section */}
+      {/* Academy CTA Section (temporarily disabled)
       <AcademyCTA />
+      */}
 
       <CTASection />
     </div>

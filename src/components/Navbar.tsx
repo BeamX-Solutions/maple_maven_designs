@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, GraduationCap } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
+// import { GraduationCap } from 'lucide-react'; // Academy (temporarily disabled)
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
@@ -103,13 +104,14 @@ const Navbar: React.FC = () => {
             >
               About
             </Link>
-            <Link 
-              to="/academy" 
+            {/* Academy (temporarily disabled)
+            <Link
+              to="/academy"
               className={`font-medium flex items-center transition-colors ${
                 isActive('/academy')
                   ? 'text-gold'
-                  : scrolled 
-                    ? 'text-gray-800 hover:text-gold' 
+                  : scrolled
+                    ? 'text-gray-800 hover:text-gold'
                     : 'text-white hover:text-gold'
               }`}
             >
@@ -117,6 +119,7 @@ const Navbar: React.FC = () => {
               Academy
               <span className="ml-1 text-xs bg-red-500 text-white px-1 rounded">NEW</span>
             </Link>
+            */}
             <Link 
               to="/contact" 
               className={`font-medium flex items-center px-4 py-2 rounded transition-all duration-300 group ${
@@ -194,8 +197,9 @@ const Navbar: React.FC = () => {
           >
             About
           </Link>
-          <Link 
-            to="/academy" 
+          {/* Academy (temporarily disabled)
+          <Link
+            to="/academy"
             className={`font-medium py-2 transition-colors flex items-center ${
               isActive('/academy') ? 'text-gold' : 'hover:text-gold'
             }`}
@@ -205,6 +209,7 @@ const Navbar: React.FC = () => {
             Academy
             <span className="ml-2 text-xs bg-red-500 text-white px-1 rounded">NEW</span>
           </Link>
+          */}
           <Link 
             to="/contact" 
             className={`font-medium py-2 transition-colors flex items-center ${
