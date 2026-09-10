@@ -3,7 +3,7 @@ import { Clock, Users, Award, BookOpen, CheckCircle, Star, ArrowRight, Phone, Ma
 import { Link } from 'react-router-dom';
 
 const AcademyPage: React.FC = () => {
-  const [slotsLeft, setSlotsLeft] = useState(4);
+  const [slotsLeft] = useState(4);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Carousel images

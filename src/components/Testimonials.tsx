@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 interface Testimonial {
   id: number;
@@ -36,6 +36,18 @@ const Testimonials: React.FC = () => {
     }
   ];
 
+  const startAutoSlide = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+
+    intervalRef.current = window.setInterval(() => {
+      setCurrentIndex(prevIndex =>
+        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 6000);
+  }, [testimonials.length]);
+
   useEffect(() => {
     startAutoSlide();
     return () => {
@@ -43,19 +55,7 @@ const Testimonials: React.FC = () => {
         clearInterval(intervalRef.current);
       }
     };
-  }, []);
-
-  const startAutoSlide = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-    
-    intervalRef.current = window.setInterval(() => {
-      setCurrentIndex(prevIndex => 
-        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 6000);
-  };
+  }, [startAutoSlide]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);

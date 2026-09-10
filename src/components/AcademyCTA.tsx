@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, GraduationCap, Clock } from 'lucide-react';
+import { ArrowRight, GraduationCap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const AcademyCTA: React.FC = () => {

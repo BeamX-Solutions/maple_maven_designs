@@ -39,13 +39,14 @@ const HomePage: React.FC = () => {
       { threshold: 0.3 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const section = sectionRef.current;
+    if (section) {
+      observer.observe(section);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (section) {
+        observer.unobserve(section);
       }
     };
   }, []);
@@ -63,7 +64,7 @@ const HomePage: React.FC = () => {
     const incrementExperience = experienceTarget / (duration / 16);
     const incrementMembers = membersTarget / (duration / 16);
 
-    let projectAnimation = setInterval(() => {
+    const projectAnimation = setInterval(() => {
       setProjectCount((prev) => {
         if (prev >= projectTarget) {
           clearInterval(projectAnimation);
@@ -73,7 +74,7 @@ const HomePage: React.FC = () => {
       });
     }, 16);
 
-    let satisfactionAnimation = setInterval(() => {
+    const satisfactionAnimation = setInterval(() => {
       setSatisfactionCount((prev) => {
         if (prev >= satisfactionTarget) {
           clearInterval(satisfactionAnimation);
@@ -83,7 +84,7 @@ const HomePage: React.FC = () => {
       });
     }, 16);
 
-    let experienceAnimation = setInterval(() => {
+    const experienceAnimation = setInterval(() => {
       setExperienceCount((prev) => {
         if (prev >= experienceTarget) {
           clearInterval(experienceAnimation);
@@ -93,7 +94,7 @@ const HomePage: React.FC = () => {
       });
     }, 16);
 
-    let membersAnimation = setInterval(() => {
+    const membersAnimation = setInterval(() => {
       setMembersCount((prev) => {
         if (prev >= membersTarget) {
           clearInterval(membersAnimation);

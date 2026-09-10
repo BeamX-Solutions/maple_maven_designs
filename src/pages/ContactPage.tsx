@@ -43,11 +43,6 @@ const ContactPage = () => {
   const [submitStatus, setSubmitStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  interface FAQ {
-    question: string;
-    answer: string;
-  }
-
   interface FormData {
     name: string;
     email: string;
@@ -74,7 +69,7 @@ const ContactPage = () => {
 
   interface SubmitResult {
     error?: string;
-    [key: string]: any;
+    [key: string]: unknown;
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
@@ -98,7 +93,7 @@ const ContactPage = () => {
 
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
       setErrorMessage('There was an error sending your message. Please try again later.');
     } finally {
